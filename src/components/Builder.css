@@ -1,0 +1,9 @@
+.builder {
+  width: 100%;
+}
+
+.drag-overlay-item {
+  opacity: 0.85;
+  transform: scale(1.02);
+  cursor: grabbing;
+}
