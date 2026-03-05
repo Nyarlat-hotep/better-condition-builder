@@ -1,4 +1,4 @@
-import { DndContext, DragOverlay, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
+import { DndContext, DragOverlay, closestCorners, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
 import { useState } from 'react'
 import { findNode } from '../utils/treeOps'
 import GroupNode from './GroupNode'
@@ -26,7 +26,7 @@ export default function Builder({
   return (
     <DndContext
       sensors={sensors}
-      collisionDetection={closestCenter}
+      collisionDetection={closestCorners}
       onDragStart={({ active }) => setActiveId(active.id)}
       onDragEnd={(event) => { setActiveId(null); onDragEnd(event) }}
       onDragCancel={() => setActiveId(null)}
