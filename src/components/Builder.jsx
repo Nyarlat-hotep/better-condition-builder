@@ -1,3 +1,15 @@
-export default function Builder({ tree }) {
-  return <div style={{ color: 'rgba(220,210,240,0.4)', fontFamily: 'monospace', fontSize: '0.75rem' }}>Builder — {tree.children.length} children</div>
+import ConditionRow from './ConditionRow'
+
+export default function Builder({ tree, onUpdateCondition, onRemove }) {
+  const testCondition = { id: 'test', type: 'condition', field: null, operator: '==', value: null }
+  return (
+    <div>
+      <ConditionRow
+        condition={testCondition}
+        onUpdate={(updates) => console.log('update', updates)}
+        onRemove={() => console.log('remove')}
+        dragHandleProps={{}}
+      />
+    </div>
+  )
 }

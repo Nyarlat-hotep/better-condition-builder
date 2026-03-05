@@ -1,0 +1,87 @@
+.condition-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0;
+}
+
+.condition-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.04);
+  font-size: 0.75rem;
+  font-family: monospace;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  white-space: nowrap;
+  color: rgba(220, 210, 240, 0.95);
+}
+
+.condition-pill:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.condition-pill:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.condition-pill--incomplete {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: rgba(239, 68, 68, 0.9);
+  background: rgba(239, 68, 68, 0.07);
+}
+
+.condition-pill--incomplete:hover {
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.condition-pill--operator {
+  border-color: rgba(255,255,255,0.1);
+  color: rgba(220, 210, 240, 0.5);
+  min-width: 36px;
+  justify-content: center;
+}
+
+.drag-handle {
+  color: rgba(255,255,255,0.2);
+  cursor: grab;
+  font-size: 1rem;
+  padding: 0 0.15rem;
+  line-height: 1;
+  user-select: none;
+  touch-action: none;
+}
+
+.drag-handle:active { cursor: grabbing; }
+
+.remove-btn {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: rgba(255,255,255,0.15);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.15s;
+  margin-left: 0.1rem;
+}
+
+.remove-btn:hover {
+  color: rgba(239, 68, 68, 0.8);
+}
+
+.pill-anchor {
+  position: relative;
+  display: inline-block;
+}
