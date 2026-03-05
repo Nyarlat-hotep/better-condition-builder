@@ -66,12 +66,8 @@ export default function App() {
     const [activeNode, activeParent, activeIndex] = activeResult
     const [overNode, overParent, overIndex] = overResult
 
-    // Drop condition onto condition in a different parent → wrap both in a new group
-    if (
-      activeNode.type === 'condition' &&
-      overNode.type === 'condition' &&
-      activeParent?.id !== overParent?.id
-    ) {
+    // Drop condition onto condition → wrap both in a new group
+    if (activeNode.type === 'condition' && overNode.type === 'condition') {
       const color = nextColor()
       const newGroup = makeGroup([activeNode, overNode], color)
       let newTree = removeNode(tree, active.id)

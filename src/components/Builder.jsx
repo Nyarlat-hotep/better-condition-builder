@@ -36,7 +36,6 @@ export default function Builder({
           node={tree}
           isRoot={true}
           onAddCondition={onAddCondition}
-          onAddGroup={onAddGroup}
           onUpdateCondition={onUpdateCondition}
           onToggleConnector={onToggleConnector}
           onRemove={onRemove}

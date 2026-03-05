@@ -1,5 +1,6 @@
+import { Fragment } from 'react'
 import { useDroppable } from '@dnd-kit/core'
-import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { SortableContext, useSortable, horizontalListSortingStrategy } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import ConditionRow from './ConditionRow'
 import './GroupNode.css'
@@ -21,7 +22,7 @@ function SortableItem({ id, children }) {
   }
 
   return (
-    <div ref={setNodeRef} style={style}>
+    <div ref={setNodeRef} style={style} className="sortable-item">
       {children({ dragHandleProps: { ...attributes, ...listeners } })}
     </div>
   )
@@ -30,8 +31,8 @@ function SortableItem({ id, children }) {
 export default function GroupNode({
   node,
   isRoot = false,
+  dragHandleProps,
   onAddCondition,
-  onAddGroup,
   onUpdateCondition,
   onToggleConnector,
   onRemove,
@@ -51,44 +52,34 @@ export default function GroupNode({
       style={groupStyle}
       ref={setDropRef}
     >
-      {!isRoot && (
-        <button
-          className="remove-group-btn"
-          onClick={() => onRemove(node.id)}
-          title="Remove group"
-        >
-          ×
-        </button>
-      )}
+      {!isRoot && <span className="drag-handle" {...dragHandleProps}>⠿</span>}
 
-      <SortableContext items={childIds} strategy={verticalListSortingStrategy}>
+      <SortableContext items={childIds} strategy={horizontalListSortingStrategy}>
         <div className="group-children">
           {node.children.map((child, i) => (
-            <div key={child.id}>
-              <div className="group-row">
-                <SortableItem id={child.id}>
-                  {({ dragHandleProps }) =>
-                    child.type === 'condition' ? (
-                      <ConditionRow
-                        condition={child}
-                        onUpdate={(updates) => onUpdateCondition(child.id, updates)}
-                        onRemove={() => onRemove(child.id)}
-                        dragHandleProps={dragHandleProps}
-                      />
-                    ) : (
-                      <GroupNode
-                        node={child}
-                        isRoot={false}
-                        onAddCondition={onAddCondition}
-                        onAddGroup={onAddGroup}
-                        onUpdateCondition={onUpdateCondition}
-                        onToggleConnector={onToggleConnector}
-                        onRemove={onRemove}
-                      />
-                    )
-                  }
-                </SortableItem>
-              </div>
+            <Fragment key={child.id}>
+              <SortableItem id={child.id}>
+                {({ dragHandleProps: hdl }) =>
+                  child.type === 'condition' ? (
+                    <ConditionRow
+                      condition={child}
+                      onUpdate={(updates) => onUpdateCondition(child.id, updates)}
+                      onRemove={() => onRemove(child.id)}
+                      dragHandleProps={hdl}
+                    />
+                  ) : (
+                    <GroupNode
+                      node={child}
+                      isRoot={false}
+                      dragHandleProps={hdl}
+                      onAddCondition={onAddCondition}
+                      onUpdateCondition={onUpdateCondition}
+                      onToggleConnector={onToggleConnector}
+                      onRemove={onRemove}
+                    />
+                  )
+                }
+              </SortableItem>
 
               {i < node.children.length - 1 && (
                 <button
@@ -99,19 +90,16 @@ export default function GroupNode({
                   {node.connector}
                 </button>
               )}
-            </div>
+            </Fragment>
           ))}
+
+          <button className="add-btn" onClick={() => onAddCondition(node.id)}>+</button>
         </div>
       </SortableContext>
 
-      <div className="add-row">
-        <button className="add-btn" onClick={() => onAddCondition(node.id)}>
-          + Condition
-        </button>
-        <button className="add-btn" onClick={() => onAddGroup(node.id)}>
-          + Group
-        </button>
-      </div>
+      {!isRoot && (
+        <button className="remove-group-btn" onClick={() => onRemove(node.id)} title="Remove group">×</button>
+      )}
     </div>
   )
 }
