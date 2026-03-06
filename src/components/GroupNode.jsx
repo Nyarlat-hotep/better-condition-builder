@@ -5,6 +5,16 @@ import { CSS } from '@dnd-kit/utilities'
 import ConditionRow from './ConditionRow'
 import './GroupNode.css'
 
+function GroupDropZone({ groupId }) {
+  const { setNodeRef, isOver } = useDroppable({ id: `${groupId}__dropzone` })
+  return (
+    <div
+      ref={setNodeRef}
+      className={`group-dropzone${isOver ? ' group-dropzone--over' : ''}`}
+    />
+  )
+}
+
 function SortableItem({ id, children }) {
   const {
     attributes,
@@ -98,6 +108,7 @@ export default function GroupNode({
             </Fragment>
           ))}
 
+          {!isRoot && activeId && <GroupDropZone groupId={node.id} />}
           <button className="add-btn" onClick={() => onAddCondition(node.id)}>+</button>
         </div>
       </SortableContext>

@@ -59,6 +59,16 @@ export default function App() {
   const onDragEnd = useCallback(({ active, over }) => {
     if (!over || active.id === over.id) return
 
+    // Handle drop onto a group's dedicated drop zone
+    if (over.id.endsWith('__dropzone')) {
+      const groupId = over.id.slice(0, -10)
+      const groupResult = findNode(tree, groupId)
+      if (!groupResult) return
+      const [groupNode] = groupResult
+      set(moveNode(tree, active.id, groupId, groupNode.children.length))
+      return
+    }
+
     const activeResult = findNode(tree, active.id)
     const overResult = findNode(tree, over.id)
     if (!activeResult || !overResult) return

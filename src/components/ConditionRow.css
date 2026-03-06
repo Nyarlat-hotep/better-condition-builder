@@ -5,6 +5,7 @@
   padding: 0.25rem 0.3rem;
   border-radius: 8px;
   transition: box-shadow 0.15s ease;
+  position: relative;
 }
 
 .condition-row--drop-target {
@@ -67,29 +68,32 @@
 .drag-handle:active { cursor: grabbing; }
 
 .remove-btn {
-  width: 20px;
-  height: 20px;
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: none;
-  background: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #0d0a1a;
   color: rgba(255,255,255,0.0);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  transition: color 0.15s, background 0.15s;
-  margin-left: 0.1rem;
-  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
   cursor: pointer;
+  z-index: 10;
 }
 
 .condition-row:hover .remove-btn {
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.4);
 }
 
 .remove-btn:hover {
   color: rgba(239, 68, 68, 0.9) !important;
-  background: rgba(239, 68, 68, 0.08);
+  background: rgba(20, 10, 30, 0.95);
+  border-color: rgba(239, 68, 68, 0.4);
 }
 
 .pill-anchor {
