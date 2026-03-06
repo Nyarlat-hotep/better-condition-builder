@@ -87,7 +87,7 @@
 }
 
 .condition-row:hover .remove-btn {
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.08);
 }
 
 .remove-btn:hover {
