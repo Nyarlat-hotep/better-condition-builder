@@ -74,9 +74,9 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: #0d0a1a;
-  color: rgba(255,255,255,0.0);
+  border: 1px solid transparent;
+  background: transparent;
+  color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,12 +86,8 @@
   z-index: 10;
 }
 
-.condition-row:hover .remove-btn {
-  color: rgba(255,255,255,0.08);
-}
-
 .remove-btn:hover {
-  color: rgba(239, 68, 68, 0.9) !important;
+  color: rgba(239, 68, 68, 0.9);
   background: rgba(20, 10, 30, 0.95);
   border-color: rgba(239, 68, 68, 0.4);
 }
