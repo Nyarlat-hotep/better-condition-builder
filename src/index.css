@@ -2,12 +2,76 @@
 
 :root {
   color-scheme: dark;
+
+  --bg-body: #04020a;
+  --bg-surface: #0d0a1a;
+  --bg-block: #000;
+
+  --fg-primary: rgba(220, 210, 240, 0.95);
+  --fg-muted: rgba(220, 210, 240, 0.6);
+  --fg-dim: rgba(220, 210, 240, 0.4);
+  --fg-faint: rgba(220, 210, 240, 0.25);
+  --fg-mid: rgba(220, 210, 240, 0.7);
+  --fg-bright: #fff;
+
+  --border-subtle:  rgba(255, 255, 255, 0.1);
+  --border-dim:     rgba(255, 255, 255, 0.12);
+  --border-normal:  rgba(255, 255, 255, 0.15);
+  --border-dashed:  rgba(255, 255, 255, 0.2);
+  --border-hover:   rgba(255, 255, 255, 0.25);
+  --border-active:  rgba(255, 255, 255, 0.3);
+  --border-reveal:  rgba(255, 255, 255, 0.35);
+  --border-strong:  rgba(255, 255, 255, 0.4);
+
+  --overlay-tiny:   rgba(255, 255, 255, 0.02);
+  --overlay-subtle: rgba(255, 255, 255, 0.03);
+  --overlay-faint:  rgba(255, 255, 255, 0.04);
+  --overlay-medium: rgba(255, 255, 255, 0.07);
+  --overlay-heavy:  rgba(255, 255, 255, 0.08);
+  --overlay-strong: rgba(255, 255, 255, 0.1);
+
+  --remove-bg: rgba(0, 0, 0, 0.95);
+  --shadow: rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-body: #f5f3ff;
+  --bg-surface: #edeaff;
+  --bg-block: #e0dbff;
+
+  --fg-primary: rgba(18, 8, 40, 0.9);
+  --fg-muted: rgba(18, 8, 40, 0.55);
+  --fg-dim: rgba(18, 8, 40, 0.38);
+  --fg-faint: rgba(18, 8, 40, 0.2);
+  --fg-mid: rgba(18, 8, 40, 0.65);
+  --fg-bright: rgba(18, 8, 40, 0.95);
+
+  --border-subtle:  rgba(0, 0, 0, 0.08);
+  --border-dim:     rgba(0, 0, 0, 0.1);
+  --border-normal:  rgba(0, 0, 0, 0.13);
+  --border-dashed:  rgba(0, 0, 0, 0.18);
+  --border-hover:   rgba(0, 0, 0, 0.22);
+  --border-active:  rgba(0, 0, 0, 0.28);
+  --border-reveal:  rgba(0, 0, 0, 0.32);
+  --border-strong:  rgba(0, 0, 0, 0.38);
+
+  --overlay-tiny:   rgba(0, 0, 0, 0.01);
+  --overlay-subtle: rgba(0, 0, 0, 0.02);
+  --overlay-faint:  rgba(0, 0, 0, 0.03);
+  --overlay-medium: rgba(0, 0, 0, 0.05);
+  --overlay-heavy:  rgba(0, 0, 0, 0.07);
+  --overlay-strong: rgba(0, 0, 0, 0.09);
+
+  --remove-bg: rgba(230, 226, 255, 0.97);
+  --shadow: rgba(0, 0, 0, 0.15);
 }
 
 body {
   font-family: monospace;
-  background: #04020a;
-  color: rgba(220, 210, 240, 0.95);
+  background: var(--bg-body);
+  color: var(--fg-primary);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }

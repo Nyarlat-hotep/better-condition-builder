@@ -24,14 +24,14 @@
   font-size: 0.65rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: rgba(220, 210, 240, 0.6);
+  color: var(--fg-muted);
   margin: 0;
   font-weight: 400;
 }
 
 .app-subtitle {
   font-size: 0.6rem;
-  color: rgba(220, 210, 240, 0.6);
+  color: var(--fg-muted);
   letter-spacing: 0.5px;
 }
 
@@ -44,9 +44,9 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-  color: rgba(220, 210, 240, 0.6);
+  border: 1px solid var(--border-dim);
+  background: var(--overlay-subtle);
+  color: var(--fg-muted);
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -55,9 +55,9 @@
 }
 
 .control-btn:hover:not(:disabled) {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
-  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--border-active);
+  color: var(--fg-bright);
+  background: var(--overlay-medium);
 }
 
 .control-btn:disabled {
@@ -67,7 +67,7 @@
 
 .app-main {
   flex: 1;
-  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border: 1px dashed var(--border-dashed);
   border-radius: 12px;
   padding: 1.5rem;
   min-height: 180px;

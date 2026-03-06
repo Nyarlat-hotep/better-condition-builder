@@ -65,7 +65,7 @@ export default function GroupNode({
   const { setNodeRef: setDropRef, isOver } = useDroppable({ id: node.id })
 
   const groupStyle = isRoot ? {} : {
-    borderColor: `${node.color}40`,
+    '--group-color': node.color,
     boxShadow: isOver ? `0 0 0 1px ${node.color}60` : undefined,
   }
 
@@ -111,10 +111,10 @@ export default function GroupNode({
               {i < node.children.length - 1 && !activeId && (
                 <button
                   className="connector-badge"
-                  style={{ color: isRoot ? 'rgba(220,210,240,0.4)' : node.color }}
-                  onClick={() => onToggleConnector(node.id)}
+                  style={isRoot ? { color: 'var(--fg-dim)' } : {}}
+                  onClick={() => onToggleConnector(node.children[i + 1].id)}
                 >
-                  {node.connector}
+                  {node.children[i + 1].connector ?? 'AND'}
                 </button>
               )}
               {activeId && <InsertSlot parentId={node.id} index={i + 1} />}

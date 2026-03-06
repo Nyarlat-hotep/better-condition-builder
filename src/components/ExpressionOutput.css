@@ -1,5 +1,5 @@
 .expression-output {
-  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border: 1px dashed var(--border-dashed);
   border-radius: 12px;
   padding: 1.25rem;
   min-height: 150px;
@@ -9,12 +9,11 @@
   font-size: 0.6rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(220, 210, 240, 0.6);
+  color: var(--fg-muted);
   margin-bottom: 0.75rem;
 }
 
 .expression-block {
-  background: #000;
   border-radius: 8px;
   padding: 0.5rem 0;
   font-family: monospace;
@@ -25,12 +24,12 @@
 }
 
 .expression-empty {
-  color: rgba(220, 210, 240, 0.6);
+  color: var(--fg-muted);
   font-style: italic;
 }
 
 .expr-connector {
-  color: rgba(220, 210, 240, 0.7);
+  color: var(--fg-mid);
 }
 
 .expr-incomplete {
@@ -38,5 +37,13 @@
 }
 
 .expr-paren {
-  color: rgba(220, 210, 240, 0.25);
+  color: var(--fg-faint);
+}
+
+.expr-group {
+  color: var(--group-color);
+}
+
+:root[data-theme="light"] .expr-group {
+  color: color-mix(in srgb, var(--group-color) 60%, #000 40%);
 }

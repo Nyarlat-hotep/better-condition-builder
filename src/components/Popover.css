@@ -8,12 +8,12 @@
   top: calc(100% + 6px);
   left: 0;
   z-index: 100;
-  background: #0d0a1a;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-normal);
   border-radius: 8px;
   padding: 0.35rem;
   min-width: 140px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 24px var(--shadow);
 }
 
 .popover-item {
@@ -24,7 +24,7 @@
   background: none;
   border: none;
   border-radius: 5px;
-  color: rgba(220, 210, 240, 0.8);
+  color: var(--fg-muted);
   font-size: 0.8rem;
   font-family: monospace;
   cursor: pointer;
@@ -33,8 +33,8 @@
 }
 
 .popover-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background: var(--overlay-heavy);
+  color: var(--fg-bright);
 }
 
 .popover-item--active {
@@ -43,11 +43,11 @@
 
 .popover-input {
   width: 100%;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: var(--overlay-faint);
+  border: 1px solid var(--border-normal);
   border-radius: 5px;
   padding: 0.4rem 0.6rem;
-  color: rgba(220, 210, 240, 0.95);
+  color: var(--fg-primary);
   font-family: monospace;
   font-size: 0.8rem;
   outline: none;
@@ -55,5 +55,5 @@
 }
 
 .popover-input:focus {
-  border-color: rgba(255,255,255,0.35);
+  border-color: var(--border-reveal);
 }

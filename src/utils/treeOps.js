@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 export const PALETTE = ['#22d3ee', '#f5c842', '#ec4899', '#a78bfa', '#34d399', '#fb923c', '#f87171']
 
 export function makeCondition() {
-  return { id: nanoid(), type: 'condition', field: null, operator: '==', value: null }
+  return { id: nanoid(), type: 'condition', connector: 'AND', field: null, operator: '==', value: null }
 }
 
 export function makeGroup(children = [], color = '#22d3ee') {

@@ -66,7 +66,7 @@ export default function Builder({
               color: activeNode.color,
               fontSize: '0.75rem',
               fontFamily: 'monospace',
-              background: '#0d0a1a',
+              background: 'var(--bg-surface)',
             }}
           >
             GROUP ({activeNode.children.length})

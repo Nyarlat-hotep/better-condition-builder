@@ -33,7 +33,7 @@ function renderNode(node, isRoot = false) {
     <span key={child.id}>
       {renderNode(child)}
       {i < node.children.length - 1 && (
-        <span className="expr-connector"> {node.connector} </span>
+        <span className="expr-connector"> {node.children[i + 1].connector ?? 'AND'} </span>
       )}
     </span>
   ))
@@ -43,7 +43,7 @@ function renderNode(node, isRoot = false) {
   return (
     <>
       <span className="expr-paren">(</span>
-      <span style={{ color: node.color }}>{parts}</span>
+      <span className="expr-group" style={{ '--group-color': node.color }}>{parts}</span>
       <span className="expr-paren">)</span>
     </>
   )

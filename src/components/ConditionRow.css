@@ -17,20 +17,20 @@
   align-items: center;
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-normal);
+  background: var(--overlay-faint);
   font-size: 0.75rem;
   font-family: monospace;
   cursor: pointer;
   transition: all 0.15s ease;
   user-select: none;
   white-space: nowrap;
-  color: rgba(220, 210, 240, 0.95);
+  color: var(--fg-primary);
 }
 
 .condition-pill:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.3);
+  background: var(--overlay-strong);
+  border-color: var(--border-active);
 }
 
 .condition-pill:disabled {
@@ -49,14 +49,14 @@
 }
 
 .condition-pill--operator {
-  border-color: rgba(255,255,255,0.1);
-  color: rgba(220, 210, 240, 1);
+  border-color: var(--border-subtle);
+  color: var(--fg-primary);
   min-width: 36px;
   justify-content: center;
 }
 
 .drag-handle {
-  color: rgba(255,255,255,0.3);
+  color: var(--border-active);
   cursor: grab;
   font-size: 1rem;
   padding: 0 0.15rem;
@@ -68,9 +68,9 @@
 .drag-handle:active { cursor: grabbing; }
 
 .condition-row:hover .remove-btn {
-  color: rgba(255, 255, 255, 0.35);
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.95);
+  color: var(--border-reveal);
+  border-color: var(--border-dim);
+  background: var(--remove-bg);
 }
 
 .pill-anchor {

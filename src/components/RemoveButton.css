@@ -17,15 +17,8 @@
   z-index: 10;
 }
 
-/* Parent hover reveals button — applied by each parent's CSS */
-.remove-btn--visible {
-  color: rgba(255, 255, 255, 0.35);
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.95);
-}
-
 .remove-btn:hover {
   color: rgba(239, 68, 68, 0.9) !important;
-  background: rgba(0, 0, 0, 0.95) !important;
+  background: var(--remove-bg) !important;
   border-color: rgba(239, 68, 68, 0.4) !important;
 }
