@@ -1,0 +1,31 @@
+.remove-btn {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Parent hover reveals button — applied by each parent's CSS */
+.remove-btn--visible {
+  color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.remove-btn:hover {
+  color: rgba(239, 68, 68, 0.9) !important;
+  background: rgba(0, 0, 0, 0.95) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+}

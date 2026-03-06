@@ -1,4 +1,4 @@
-import { DndContext, DragOverlay, closestCorners, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
+import { DndContext, DragOverlay, closestCorners, pointerWithin, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
 import { useState } from 'react'
 import { findNode } from '../utils/treeOps'
 import GroupNode from './GroupNode'
@@ -26,7 +26,7 @@ export default function Builder({
   return (
     <DndContext
       sensors={sensors}
-      collisionDetection={closestCorners}
+      collisionDetection={(args) => pointerWithin(args).length > 0 ? pointerWithin(args) : closestCorners(args)}
       onDragStart={({ active }) => setActiveId(active.id)}
       onDragOver={({ over }) => setOverId(over?.id ?? null)}
       onDragEnd={(event) => { setActiveId(null); setOverId(null); onDragEnd(event) }}
