@@ -32,6 +32,8 @@ export default function GroupNode({
   node,
   isRoot = false,
   dragHandleProps,
+  activeId,
+  overId,
   onAddCondition,
   onUpdateCondition,
   onToggleConnector,
@@ -63,6 +65,7 @@ export default function GroupNode({
                   child.type === 'condition' ? (
                     <ConditionRow
                       condition={child}
+                      isDropTarget={overId === child.id && activeId !== child.id}
                       onUpdate={(updates) => onUpdateCondition(child.id, updates)}
                       onRemove={() => onRemove(child.id)}
                       dragHandleProps={hdl}
@@ -72,6 +75,8 @@ export default function GroupNode({
                       node={child}
                       isRoot={false}
                       dragHandleProps={hdl}
+                      activeId={activeId}
+                      overId={overId}
                       onAddCondition={onAddCondition}
                       onUpdateCondition={onUpdateCondition}
                       onToggleConnector={onToggleConnector}

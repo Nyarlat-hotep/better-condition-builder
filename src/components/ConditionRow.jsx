@@ -73,7 +73,7 @@ function ValuePopover({ field, current, onSelect, onClose }) {
   )
 }
 
-export default function ConditionRow({ condition, onUpdate, onRemove, dragHandleProps }) {
+export default function ConditionRow({ condition, isDropTarget, onUpdate, onRemove, dragHandleProps }) {
   const [open, setOpen] = useState(null) // 'field' | 'operator' | 'value'
 
   const fieldDef = FIELD_MAP[condition.field]
@@ -88,7 +88,7 @@ export default function ConditionRow({ condition, onUpdate, onRemove, dragHandle
   const valueIncomplete = !condition.value
 
   return (
-    <div className="condition-row">
+    <div className={`condition-row${isDropTarget ? ' condition-row--drop-target' : ''}`}>
       <span className="drag-handle" {...dragHandleProps}>⠿</span>
 
       {/* Field pill */}
@@ -146,7 +146,14 @@ export default function ConditionRow({ condition, onUpdate, onRemove, dragHandle
         )}
       </div>
 
-      <button className="remove-btn" onClick={onRemove} title="Remove">×</button>
+      <button className="remove-btn" onClick={onRemove} title="Remove">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="3 6 5 6 21 6" />
+          <path d="M19 6l-1 14H6L5 6" />
+          <path d="M10 11v6M14 11v6" />
+          <path d="M9 6V4h6v2" />
+        </svg>
+      </button>
     </div>
   )
 }

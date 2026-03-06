@@ -7,7 +7,7 @@
   font-size: 0.6rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(220, 210, 240, 0.3);
+  color: rgba(220, 210, 240, 0.6);
   margin-bottom: 0.75rem;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .expression-empty {
-  color: rgba(220, 210, 240, 0.2);
+  color: rgba(220, 210, 240, 0.6);
   font-style: italic;
 }
 

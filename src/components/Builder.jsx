@@ -8,13 +8,13 @@ import './Builder.css'
 export default function Builder({
   tree,
   onAddCondition,
-  onAddGroup,
   onUpdateCondition,
   onToggleConnector,
   onRemove,
   onDragEnd,
 }) {
   const [activeId, setActiveId] = useState(null)
+  const [overId, setOverId] = useState(null)
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } })
@@ -28,13 +28,16 @@ export default function Builder({
       sensors={sensors}
       collisionDetection={closestCorners}
       onDragStart={({ active }) => setActiveId(active.id)}
-      onDragEnd={(event) => { setActiveId(null); onDragEnd(event) }}
-      onDragCancel={() => setActiveId(null)}
+      onDragOver={({ over }) => setOverId(over?.id ?? null)}
+      onDragEnd={(event) => { setActiveId(null); setOverId(null); onDragEnd(event) }}
+      onDragCancel={() => { setActiveId(null); setOverId(null) }}
     >
       <div className="builder">
         <GroupNode
           node={tree}
           isRoot={true}
+          activeId={activeId}
+          overId={overId}
           onAddCondition={onAddCondition}
           onUpdateCondition={onUpdateCondition}
           onToggleConnector={onToggleConnector}
