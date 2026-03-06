@@ -15,6 +15,16 @@ function GroupDropZone({ groupId }) {
   )
 }
 
+function InsertSlot({ parentId, index }) {
+  const { setNodeRef, isOver } = useDroppable({ id: `${parentId}__slot__${index}` })
+  return (
+    <div
+      ref={setNodeRef}
+      className={`insert-slot${isOver ? ' insert-slot--over' : ''}`}
+    />
+  )
+}
+
 function SortableItem({ id, children }) {
   const {
     attributes,
@@ -68,6 +78,7 @@ export default function GroupNode({
 
       <SortableContext items={childIds} strategy={horizontalListSortingStrategy}>
         <div className="group-children">
+          {activeId && <InsertSlot parentId={node.id} index={0} />}
           {node.children.map((child, i) => (
             <Fragment key={child.id}>
               <SortableItem id={child.id}>
@@ -96,7 +107,7 @@ export default function GroupNode({
                 }
               </SortableItem>
 
-              {i < node.children.length - 1 && (
+              {i < node.children.length - 1 && !activeId && (
                 <button
                   className="connector-badge"
                   style={{ color: isRoot ? 'rgba(220,210,240,0.4)' : node.color }}
@@ -105,6 +116,7 @@ export default function GroupNode({
                   {node.connector}
                 </button>
               )}
+              {activeId && <InsertSlot parentId={node.id} index={i + 1} />}
             </Fragment>
           ))}
 

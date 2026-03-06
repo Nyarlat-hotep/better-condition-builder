@@ -69,6 +69,26 @@ export default function App() {
       return
     }
 
+    // Handle drop onto an insert slot → reorder
+    if (over.id.includes('__slot__')) {
+      const slotIdx = over.id.lastIndexOf('__slot__')
+      const parentId = over.id.slice(0, slotIdx)
+      const insertIndex = parseInt(over.id.slice(slotIdx + 8))
+      const activeResult = findNode(tree, active.id)
+      if (!activeResult) return
+      const [activeNode, activeParent, activeIndex] = activeResult
+      if (activeParent?.id === parentId) {
+        const siblings = [...activeParent.children]
+        siblings.splice(activeIndex, 1)
+        const target = insertIndex > activeIndex ? insertIndex - 1 : insertIndex
+        siblings.splice(target, 0, activeNode)
+        set(updateNode(tree, parentId, { children: siblings }))
+      } else {
+        set(moveNode(tree, active.id, parentId, insertIndex))
+      }
+      return
+    }
+
     const activeResult = findNode(tree, active.id)
     const overResult = findNode(tree, over.id)
     if (!activeResult || !overResult) return
