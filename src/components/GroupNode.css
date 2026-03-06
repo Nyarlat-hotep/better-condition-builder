@@ -5,6 +5,7 @@
   border: 1px solid;
   border-radius: 10px;
   padding: 0.35rem 0.6rem;
+  position: relative;
 }
 
 .group-node--root {
@@ -77,24 +78,35 @@
 }
 
 .remove-group-btn {
-  width: 16px;
-  height: 16px;
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: none;
-  background: none;
-  color: rgba(255,255,255,0.15);
-  font-size: 0.75rem;
-  display: inline-flex;
+  border: 1px solid transparent;
+  background: transparent;
+  color: transparent;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  line-height: 1;
-  transition: color 0.15s;
-  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
   cursor: pointer;
+  z-index: 10;
 }
 
-.remove-group-btn:hover { color: rgba(239, 68, 68, 0.8); }
+.group-node:hover > .remove-group-btn {
+  color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.remove-group-btn:hover {
+  color: rgba(239, 68, 68, 0.9) !important;
+  background: rgba(20, 10, 30, 0.95) !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+}
 
 .group-node--over {
   background: rgba(255, 255, 255, 0.02);

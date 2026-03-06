@@ -35,7 +35,7 @@
 
 .condition-pill:disabled {
   cursor: default;
-  opacity: 0.4;
+  opacity: 1;
 }
 
 .condition-pill--incomplete {
@@ -56,7 +56,7 @@
 }
 
 .drag-handle {
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.3);
   cursor: grab;
   font-size: 1rem;
   padding: 0 0.15rem;
