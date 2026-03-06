@@ -11,7 +11,7 @@ export function makeGroup(children = [], color = '#22d3ee') {
 }
 
 export function makeRoot() {
-  return { id: 'root', type: 'group', connector: 'AND', color: null, children: [] }
+  return { id: 'root', type: 'group', connector: 'AND', color: null, children: [makeCondition()] }
 }
 
 export function countGroups(node) {
