@@ -164,7 +164,6 @@ export default function App() {
         <Builder
           tree={tree}
           onAddCondition={onAddCondition}
-          onAddGroup={onAddGroup}
           onUpdateCondition={onUpdateCondition}
           onToggleConnector={onToggleConnector}
           onRemove={onRemove}
